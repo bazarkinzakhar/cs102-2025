@@ -1,3 +1,14 @@
+"""
+RSA шифрование и дешифравание
+Содержит:
+- is_prime(n: int) -> bool: проверяет, является ли число простым
+gcd(a: int, b: int) -> int: находит наибольший общий делитель
+- multiplicative_inverse(e: int, phi: int) -> int: находит мультипликативный обратный
+- generate_keypair(p: int, q: int) -> Tuple[Tuple[int, int], Tuple[int, int]]: генерирует пару ключей
+- encrypt(pk: Tuple[int, int], plaintext: str) -> List[int]: шифрует при помощи открытого ключа
+- decrypt(pk: Tuple[int, int], ciphertext: List[int]) -> str: расшифровывает при помощи закрытого ключа"""
+
+
 import random
 import typing as tp
 
@@ -49,8 +60,13 @@ def multiplicative_inverse(e: int, phi: int) -> int:
     >>> multiplicative_inverse(7, 40)
     23
     """
-    # PUT YOUR CODE HERE
-    pass
+    old_r, r = phi, e
+    old_t, t = 0, 1
+    while r != 0:
+        quotient = old_r // r
+        old_r, r = r, old_r - quotient * r
+        old_t, t = t, old_t - quotient * t
+    return old_t % phi
 
 
 def generate_keypair(p: int, q: int) -> tp.Tuple[tp.Tuple[int, int], tp.Tuple[int, int]]:
