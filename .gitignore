@@ -10,3 +10,6 @@ coverage.xml
 # Mypy cache
 .mypy_cache/
 .idea/
+
+#computer
+.DS_Store
