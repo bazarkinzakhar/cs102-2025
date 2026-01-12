@@ -18,8 +18,7 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     'LXFOPVEFRNHR'
     """
     ciphertext = ""
-    for i in enumerate(plaintext):
-        char = plaintext[i]
+    for i, char in enumerate(plaintext):
         key_char = keyword[i % len(keyword)]
         if char.isupper():
             shift = ord(key_char.upper()) - 65
@@ -43,8 +42,7 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     'ATTACKATDAWN'
     """
     plaintext = ""
-    for i in enumerate(plaintext):
-        char = ciphertext[i]
+    for i, char in enumerate(ciphertext):
         key_char = keyword[i % len(keyword)]
         if char.isupper():
             shift = ord(key_char.upper()) - 65
