@@ -1,6 +1,6 @@
 import unittest
 
-from homework00 import hello_world
+import hello_world
 
 
 class HelloTestCase(unittest.TestCase):
