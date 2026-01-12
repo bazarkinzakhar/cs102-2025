@@ -1,3 +1,12 @@
+"""
+Модуль с функциями шифра Виженера
+
+Содержит:
+- encrypt_vigenere(plaintext, keyword) -> str: шифрует текст
+- decrypt_vigenere(ciphertext, keyword) -> str: расшифровывает текст
+"""
+
+
 def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     """
     Encrypts plaintext using a Vigenere cipher.
@@ -9,7 +18,7 @@ def encrypt_vigenere(plaintext: str, keyword: str) -> str:
     'LXFOPVEFRNHR'
     """
     ciphertext = ""
-    for i in range(len(plaintext)):
+    for i in enumerate(plaintext):
         char = plaintext[i]
         key_char = keyword[i % len(keyword)]
         if char.isupper():
@@ -34,7 +43,7 @@ def decrypt_vigenere(ciphertext: str, keyword: str) -> str:
     'ATTACKATDAWN'
     """
     plaintext = ""
-    for i in range(len(ciphertext)):
+    for i in enumerate(plaintext):
         char = ciphertext[i]
         key_char = keyword[i % len(keyword)]
         if char.isupper():
