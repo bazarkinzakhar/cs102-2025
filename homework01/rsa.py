@@ -6,7 +6,7 @@ gcd(a: int, b: int) -> int: находит наибольший общий де�
 - multiplicative_inverse(e: int, phi: int) -> int:
 - generate_keypair(p: int, q: int) -> Tuple[Tuple[int, int], Tuple[int, int]]: генерирует ключи
 - encrypt(pk: Tuple[int, int], plaintext: str) -> List[int]: шифрует
-- decrypt(pk: Tuple[int, int], ciphertext: List[int]) -> str: расшифровываета"""
+- decrypt(pk: Tuple[int, int], ciphertext: List[int]) -> str: расшифровывается"""
 
 import random
 import typing as tp
@@ -111,7 +111,7 @@ def decrypt(pk: tp.Tuple[int, int], ciphertext: tp.List[int]) -> str:
     # Unpack the key into its components
     key, n = pk
     # Generate the plaintext based on the ciphertext and key using a^b mod m
-    plain = [chr((char ** key) % n) for char in ciphertext]
+    plain = [chr((char**key) % n) for char in ciphertext]
     # Return the array of bytes as a string
     return "".join(plain)
 
