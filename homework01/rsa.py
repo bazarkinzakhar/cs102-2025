@@ -3,11 +3,10 @@ RSA шифрование и дешифравание
 Содержит:
 - is_prime(n: int) -> bool: проверяет, является ли число простым
 gcd(a: int, b: int) -> int: находит наибольший общий делитель
-- multiplicative_inverse(e: int, phi: int) -> int: находит мультипликативный обратный
-- generate_keypair(p: int, q: int) -> Tuple[Tuple[int, int], Tuple[int, int]]: генерирует пару ключей
-- encrypt(pk: Tuple[int, int], plaintext: str) -> List[int]: шифрует при помощи открытого ключа
-- decrypt(pk: Tuple[int, int], ciphertext: List[int]) -> str: расшифровывает при помощи закрытого ключа"""
-
+- multiplicative_inverse(e: int, phi: int) -> int:
+- generate_keypair(p: int, q: int) -> Tuple[Tuple[int, int], Tuple[int, int]]: генерирует ключи
+- encrypt(pk: Tuple[int, int], plaintext: str) -> List[int]: шифрует
+- decrypt(pk: Tuple[int, int], ciphertext: List[int]) -> str: расшифровываета"""
 
 import random
 import typing as tp
@@ -25,11 +24,11 @@ def is_prime(n: int) -> bool:
     """
     if n <= 1:
         return False
-    if n == 2 or n == 3:
+    if n in (2, 3):
         return True
     if n % 2 == 0 or n % 3 == 0:
         return False
-    
+
     i = 5
     w = 2
     while i * i <= n:
