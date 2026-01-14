@@ -104,6 +104,7 @@ def find_empty_positions(grid: tp.List[tp.List[str]]) -> tp.Optional[tp.Tuple[in
         for col_index in range(len(grid)):
             if grid[row_index][col_index] == ".":
                 return (row_index, col_index)
+    return None
 
 
 def find_possible_values(grid: tp.List[tp.List[str]], pos: tp.Tuple[int, int]) -> tp.Set[str]:
@@ -250,6 +251,7 @@ def generate_sudoku(N: int) -> tp.List[tp.List[str]]:
     """
     grid = [["."] * 9 for _ in range(9)]
     solution = solve(grid)
+    assert solution is not None
     solution = copy.deepcopy(solution)
 
     N = max(0, min(N, 81))
