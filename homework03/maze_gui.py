@@ -22,11 +22,12 @@ def draw_maze(grid: List[List[str]], size: int = 10):
             elif cell == "■":
                 color = "black"
             elif cell == "X":
-                color = "blue"
+                color = "green"
             draw_cell(y, x, color, size)
 
 
 def show_solution():
+    global GRID
     canvas.delete("all")
     maze, path = solve_maze(deepcopy(GRID))
     maze = add_path_to_grid(maze, path)
